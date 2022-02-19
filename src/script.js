@@ -9,57 +9,64 @@ const message = `Choose an option:
 // -------------- Calculator ------------------ //
 
 function cal() {
+    const operation = prompt(message);
+    if (!operation || operation >= 7 || operation <= 0) {
+        alert(`Error - Put a valid option.`);
+        cal()
+    } else {
+
+        let a = Number(prompt(`Insert the first number`));
+        let b = Number(prompt(`Insert the second number`));
+        let result;
     
-    const operation = prompt(message)
-
-    let a = Number(prompt(`Insert the first number`));
-    let b = Number(prompt(`Insert the second number`));
-    let result;
-
+        if (!a || !b) {
+            alert(`Error - Put a number`);
+        } else {
+    
 // --------------- Math Operations ------------------ //
+    
     addition = () => {
-        result = a + b 
-        alert(`${a} plus ${b} is ${result}`)
+        result = a + b;
+        alert(`${a} plus ${b} is ${result}`);
     };
     subtraction = () => {
         result = a - b
-        alert(`${a} minus ${b} is ${result}`)
+        alert(`${a} minus ${b} is ${result}`);
     };
     multiplication = () => {
-        result = a * b
-        alert(`${a} multiplied by ${b} is ${result}`)
+        result = a * b;
+        alert(`${a} multiplied by ${b} is ${result}`);
     };
     division = () => {
-        result = a / b
-        alert(`${a} divided by ${b} is ${result}`)
+        result = a / b;
+        alert(`${a} divided by ${b} is ${result}`);
     };
     remaider = () => {
-        result = a % b
-        alert(`The remaider of ${a} divided by ${b} is ${result}`)
+        result = a % b;
+        alert(`The remaider of ${a} divided by ${b} is ${result}`);
     };
     exponentiation = () => {
-        result = a ** b
-        alert(`${a} raised to the ${b}th power is ${result}`)
+        result = a ** b;
+        alert(`${a} raised to the ${b}th power is ${result}`);
     };
-
+    
 // ---------------- New Operation ----------------- //
-
+    
     newOp = () => {
-        option = prompt(`Would you like to do another operation?\n1- Yes, I do.\n2- No, I don't.`)
-
-        if(option == 1) {
-            cal()
-        } else if(option == 2) {
-            alert(`Bye bye (:`)
-        } else {
-            alert(`Put a valid value`)
-            newOp()
-        }
+        option = prompt(`Would you like to do another operation?\n1- Yes, I do.\n2- No, I don't.`);
+    
+    if(option == 1) {
+        cal();
+    } else if(option == 2) {
+        alert(`Bye bye (:`);
+    } else {
+        alert(`Put a valid value`);
+        newOp();
+     }
     }
-    newOp()
-
-// --------------- conditionals ----------------- //
-
+    
+    // --------------- Conditionals ----------------- //
+    
     if (operation == 1) {
         addition();
     } else if (operation == 2) {
@@ -73,8 +80,8 @@ function cal() {
     } else if (operation == 6) {
         exponentiation();
     }
-    
-    return prompt
+   }
+   return prompt, newOp()
+  }
 }
-
-cal()
+cal() 
