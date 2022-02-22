@@ -1,59 +1,49 @@
-const message = `Choose an option:
+// -------------- Prompt message -------------------- //
+
+const message = `Choose a number:
 1- Addition ( + )
 2- Subtraction ( - )
 3- Multiplication ( * )
 4- Division ( / )
 5- Remainder ( % )
-6- exponentiation ( ** )`
+6- Exponentiation ( ** )`
 
-// -------------- Calculator ------------------ //
-
-function cal() {
-    const operation = prompt(message);
-    if (!operation || operation >= 7 || operation <= 0) {
-        alert(`Error - Put a valid option.`);
-        cal()
-    } else {
-
-        let a = Number(prompt(`Insert the first number`));
-        let b = Number(prompt(`Insert the second number`));
-        let result;
-    
-        if (!a || !b) {
-            alert(`Error - Put a number`);
-        } else {
-    
 // --------------- Math Operations ------------------ //
-    
-    addition = () => {
-        result = a + b;
-        alert(`${a} plus ${b} is ${result}`);
+
+const addition = (a, b) => {
+    result = a + b;
+    alert(`${a} plus ${b} is ${result}`);
     };
-    subtraction = () => {
-        result = a - b
-        alert(`${a} minus ${b} is ${result}`);
+
+const subtraction = (a, b) => {
+    result = a - b
+    alert(`${a} minus ${b} is ${result}`);
     };
-    multiplication = () => {
-        result = a * b;
-        alert(`${a} multiplied by ${b} is ${result}`);
+
+const multiplication = (a, b) => {
+    result = a * b;
+    alert(`${a} multiplied by ${b} is ${result}`);
     };
-    division = () => {
-        result = a / b;
-        alert(`${a} divided by ${b} is ${result}`);
+
+const division = (a, b) => {
+    result = a / b;
+    alert(`${a} divided by ${b} is ${result}`);
     };
-    remaider = () => {
-        result = a % b;
-        alert(`The remaider of ${a} divided by ${b} is ${result}`);
+
+const remaider = (a, b) => {
+    result = a % b;
+    alert(`The remaider of ${a} divided by ${b} is ${result}`);
     };
-    exponentiation = () => {
-        result = a ** b;
-        alert(`${a} raised to the ${b}th power is ${result}`);
-    };
-    
+
+const exponentiation = (a, b) => {
+    result = a ** b;
+    alert(`${a} raised to the ${b}th power is ${result}`);
+};
+
 // ---------------- New Operation ----------------- //
     
-    newOp = () => {
-        option = prompt(`Would you like to do another operation?\n1- Yes, I do.\n2- No, I don't.`);
+const newOp = () => {
+    option = prompt(`Would you like to do another operation?\n1- Yes, I do.\n2- No, I don't.`);
     
     if(option == 1) {
         cal();
@@ -62,26 +52,48 @@ function cal() {
     } else {
         alert(`Put a valid value`);
         newOp();
-     }
     }
+}
     
-    // --------------- Conditionals ----------------- //
+// -------------- Calculator ------------------ //
+
+const cal = () => {
+    const operation = prompt(message);
+    if (isNaN(operation) || operation >= 7 || operation <= 0) {
+        alert(`Error - Put a valid option.`);
+        cal();
+    } else {
+        let a = Number(prompt(`Insert the first number`));
+        let b = Number(prompt(`Insert the second number`));
+    
+        if (isNaN(a) && isNaN(b)) {
+            alert(`Error - Put a number`);
+            newOp();
+        } else {
+    
+// --------------- Conditional's operation ----------------- //
     
     if (operation == 1) {
-        addition();
+        addition(a, b);
+        newOp();
     } else if (operation == 2) {
-        subtraction();
+        subtraction(a, b);
+        newOp();
     } else if (operation == 3) {
-        multiplication();
+        multiplication(a, b);
+        newOp();
     } else if (operation == 4) {
-        division();
+        division(a, b);
+        newOp();
     } else if (operation == 5) {
-        remaider();
+        remaider(a, b);
+        newOp();
     } else if (operation == 6) {
-        exponentiation();
+        exponentiation(a, b);
+        newOp();
     }
    }
-   return prompt, newOp()
   }
 }
+
 cal() 
